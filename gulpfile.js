@@ -19,7 +19,8 @@ gulp.task('buildVendor', function(){
   return gulp.src([
     'bower_components/angular/angular.min.js',
     'bower_components/angular-route/angular-route.min.js',
-    'bower_components/firebase/firebase.js'])
+    'bower_components/firebase/firebase.js',
+    'bower_components/angularfire/dist/angularfire.min.js'])
     .pipe(concat('vendors.js'))
     .pipe(uglify())
     .pipe(gulp.dest('dist'));

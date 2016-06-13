@@ -1,6 +1,5 @@
-var regApp = angular.module('regApp', 
-	['ngRoute', 'firebase']);
-	//.constant('FIREBASE_URL', 'https://regapp-9f43d.firebaseio.com/');
+var regApp = angular.module('regApp', ['ngRoute', 'firebase'])
+	.constant('FIREBASE_URL', 'https://regapp1.firebaseio.com/');
 
 regApp.config(['$routeProvider', function($routeProvider){
 	$routeProvider.
