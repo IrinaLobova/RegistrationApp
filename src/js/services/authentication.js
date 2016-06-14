@@ -8,8 +8,7 @@ regApp.factory('Authentication', ['$rootScope', '$firebaseAuth', '$firebaseObjec
 			if(authUser){
 				var userRef = new Firebase(FIREBASE_URL + 'users/' + authUser.uid);
 				var userObj = $firebaseObject(userRef);
-				$rootScope.currentUser = userObj;
-				console.log(userObj.uid); 
+				$rootScope.currentUser = userObj; 
 			} else {
 				$rootScope.currentUser = ''; 
 			}
@@ -26,6 +25,10 @@ regApp.factory('Authentication', ['$rootScope', '$firebaseAuth', '$firebaseObjec
 					$rootScope.message = error.message;
 				});
 			},//login
+
+			logout: function(){
+				return auth.$unauth();
+			},//logout
 
 			register: function(user){
 				auth.$createUser({
