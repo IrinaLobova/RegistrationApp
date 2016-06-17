@@ -11,10 +11,11 @@ regApp.factory('Authentication', ['$rootScope', '$firebaseAuth', '$firebaseObjec
 				$rootScope.currentUser = userObj; 
 			} else {
 				$rootScope.currentUser = ''; 
+				//$location.path('/login');
 			}
 		});
 
-		return {
+		var authObject = {
 			login: function(user){
 				auth.$authWithPassword({
 					email: user.email,
@@ -23,12 +24,17 @@ regApp.factory('Authentication', ['$rootScope', '$firebaseAuth', '$firebaseObjec
 					$location.path('/success');
 				}).catch(function(error){
 					$rootScope.message = error.message;
+					$location.path('/register');
 				});
 			},//login
 
 			logout: function(){
 				return auth.$unauth();
 			},//logout
+
+			requireAuth: function(){
+				return auth.$requireAuth();
+			},//require Authentication
 
 			register: function(user){
 				auth.$createUser({
@@ -44,13 +50,13 @@ regApp.factory('Authentication', ['$rootScope', '$firebaseAuth', '$firebaseObjec
 						lastname: user.lname,
 						email: user.email
 					});//user info
+					authObject.login(user);
 
-
-					$rootScope.message = "Hi " + user.fname + ", thanks for registering!";
 				}).catch(function(error){
 					$rootScope.message = error.message;
 				});//create user
 			}//register
 		};
+		return authObject;
 }]);//factory
 
