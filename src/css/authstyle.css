@@ -1,10 +1,13 @@
 /* apply a natural box layout model to all elements, but allowing components to change */
+
 html {
   box-sizing: border-box;
 }
 *, *:before, *:after {
   box-sizing: inherit;
 }
+
+
 /* Reset Styles */
 
 html, body, div, span, applet, object, iframe,
@@ -59,7 +62,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
-
 
 /* Base Styles */
 
@@ -226,7 +228,8 @@ input[type=radio] {
 .btn .btn-right { float: right; }
 .btn:hover { background-color: #DC322F; }
 
-.btn-list { background-image: url(../images/icons/icon_list.png); }
+
+/*.btn-list { background-image: url(../images/icons/icon_list.png); }
 .btn-checkin { background-color: #859835; background-image: url(../images/icons/icon_checkmark.png); }
 .btn-delete { background-color: #C94C24; background-image: url(../images/icons/icon_trash.png); }
 .btn-love { background-image: url(../images/icons/icon_heart.png); }
@@ -246,6 +249,7 @@ input[type=radio] {
   background-size: 20px 20px;
   padding: 5px 5px 5px 50px;
 }
+*/
 
 
 /*buttons*/

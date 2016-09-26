@@ -5,6 +5,7 @@ regApp.factory('Authentication', ['$rootScope', '$firebaseAuth', '$firebaseObjec
 		var auth = $firebaseAuth(ref);
 
 		auth.$onAuth(function(authUser){
+			console.log($rootScope);
 			if(authUser){
 				var userRef = new Firebase(FIREBASE_URL + 'users/' + authUser.uid);
 				var userObj = $firebaseObject(userRef);
@@ -21,10 +22,11 @@ regApp.factory('Authentication', ['$rootScope', '$firebaseAuth', '$firebaseObjec
 					email: user.email,
 					password: user.password
 				}).then(function(regUser){
+					$rootScope.message = "Welcome to SmartIngridients";
 					$location.path('/success');
 				}).catch(function(error){
 					$rootScope.message = error.message;
-					$location.path('/register');
+					$location.path('/login');
 				});
 			},//login
 

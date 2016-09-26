@@ -1,2 +1,5 @@
-# RegistrationApp
-Users registration/login template with Angular and Firebase
+# SmartIngredients
+Capstone project
+Harvard Extension School
+Fall 2016
+

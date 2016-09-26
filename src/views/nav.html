@@ -1,7 +1,22 @@
-<div class="branding"><a ng-href="#/">angularJS</a></div>
-<ul>
+<!--<img src="https://drive.google.com/file/d/0B8RnIB6vWK66UkxlTDRPYkNpcWs/view?usp=sharing" alt="logo" class="col-md-1">-->
+
+<div class="brand col-md-3 col-sm-5">
+	<h1><a ng-href="#/">Smart<span class="part">Ingredients</span></a></h1>
+</div><!--logo-->
+
+<div ng-controller="SearchController" class="col-md-2 col-md-offset-5">
+	<input ng-model="q" type="text" name="search" placeholder="search" id="search">
+	<a ng-href="#/search" ng-click="search()">Search</a>
+</div><!--search-->
+
+<ul class="col-sm-12 col-md-2">
 	<li><a ng-hide="currentUser" ng-href="#/login">Login</a></li>
 	<li><a ng-hide="currentUser" ng-href="#/register">Sign Up</a></li>
 
-	<li ng-controller="RegistrationController"><a ng-href="#/login" ng-click="logout()" ng-show="currentUser">Logout</a></li>
-</ul>
+	<li ng-controller="RegistrationController">
+		<a ng-href="#/login" ng-click="logout()" ng-show="currentUser">Logout</a>
+	</li>
+</ul><!--login/logout-->
+
+
+

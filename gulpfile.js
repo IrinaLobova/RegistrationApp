@@ -20,14 +20,18 @@ gulp.task('buildVendor', function(){
     'bower_components/angular/angular.min.js',
     'bower_components/angular-route/angular-route.min.js',
     'bower_components/firebase/firebase.js',
-    'bower_components/angularfire/dist/angularfire.min.js'])
+    'bower_components/angularfire/dist/angularfire.min.js',
+    'bower_components/jquery/dist/jquery.min.js'])
     .pipe(concat('vendors.js'))
     .pipe(uglify())
     .pipe(gulp.dest('dist'));
 });
 
 gulp.task('buildCSS', function(){
-  return gulp.src('src/css/**/*.css')
+  return gulp.src([
+    'src/css/homestyle.css',
+    'bower_components/**/*.css',
+    'src/css/**/*.css'])
   .pipe(concat('styles.css'))
   .pipe(minifycss())
   .pipe(gulp.dest('dist'))
@@ -39,6 +43,7 @@ gulp.task('moveHTML', function(){
     .pipe(gulp.dest('dist'))
     .pipe(connect.reload());
 });
+
 
 gulp.task('build', ['buildVendor', 'buildApp', 'buildCSS', 'moveHTML']);
 

@@ -12,6 +12,13 @@ regApp.run(['$rootScope', '$location', function($rootScope, $location){
 
 regApp.config(['$routeProvider', function($routeProvider){
 	$routeProvider.
+		when('/home', {
+			templateUrl: 'views/home.html'
+		}).
+		when('/search', {
+			templateUrl: 'views/results.html',
+			controller: 'SearchController'
+		}).
 		when('/login', {
 			templateUrl: 'views/login.html',
 			controller: 'RegistrationController'
@@ -30,6 +37,6 @@ regApp.config(['$routeProvider', function($routeProvider){
 			} //resolve
 		}).
 		otherwise({
-			redirectTo:'/login'
+			redirectTo:'/home'
 		});
 }]);

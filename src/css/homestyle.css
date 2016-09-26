@@ -1,0 +1,101 @@
+  
+html, body {
+  overflow: auto !important;
+}
+
+.outline {
+	text-align: center;
+	color: #5E3C58;
+}
+.brand h1 a {
+	color: #B365D8;
+}
+.brand .part {
+	color: #37AA3D;
+}
+.brand a:hover {
+	text-decoration: none;
+}
+.exp {
+	text-align: center;
+}
+hr {
+	width: 23em;
+	margin-top: 3em !important;
+}
+.outline {
+	font-weight: 100;
+	font-size: 30px;
+	margin-bottom: 1em;
+}
+.circle {
+  	position: relative;
+  	background-color: rgba(204,153,204,0.8);
+  	width: 300px !important;
+  	height: 300px;
+  	border-radius: 50%;
+}
+.circle:nth-child(even) {
+	background-color: rgba(0,204,102,0.8);
+}
+.circletext {
+  	position: absolute;
+  	width: 80%;
+  	font-size: 14px;
+  	text-align: center;
+  	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+  	color: #fff;
+}
+.circle h4 {
+	text-align: center;
+	margin-top: 2em;
+}
+.number {
+	text-align: center;
+	font-family: 'Yellowtail', cursive;
+	font-size: 100px;
+	color: rgba(0,204,102,0.6);
+}
+#search {
+	width: 50%;
+}
+.instruction {
+  	position: relative;
+  	background-color: rgba(204,153,204,0.8);
+  
+  	height: 350px;
+  	border-radius: 15%;
+}
+.instructiontext {
+	position: absolute;
+  	width: 80%;
+  	font-size: 20px;
+  	text-align: center;
+  	top: 55%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+  	color: #fff;
+}
+.instruction h4 {
+	position: absolute;
+  	width: 80%;
+  	font-size: 40px;
+  	text-align: center;
+  	left: 50%;
+  	top: 10%;
+  	transform: translate(-50%, -50%);
+  	color: #906;
+
+}
+
+
+
+
+
+
+
+
+
+
