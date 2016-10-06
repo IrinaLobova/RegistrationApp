@@ -4,13 +4,15 @@ var uglify = require('gulp-uglify');
 var minifycss = require('gulp-minify-css');
 var jshint = require('gulp-jshint');
 var connect = require('gulp-connect');
+var gutil = require('gulp-util');
+
 
 // *******************************************
 
 gulp.task('buildApp', function(){
   return gulp.src(['src/js/app.js','src/js/**/*.js'])
     .pipe(concat('app.js'))
-    .pipe(uglify({mangle: false}))
+    .pipe(uglify({mangle: false}).on('error', gutil.log))
     .pipe(gulp.dest('dist'))
     .pipe(connect.reload());
 });
