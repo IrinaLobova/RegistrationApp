@@ -235,7 +235,6 @@ input[type=radio] {
 .btn-love { background-image: url(../images/icons/icon_heart.png); }
 .btn-email { background-image: url(../images/icons/icon_email.png); }
 .btn-meeting { background-image:  url(../images/icons/icon_meeting.png); }
-
 .btn-pick {
   background: #2D8BCF url(../images/icons/icon_dice.png) 5px center no-repeat;
   background-size: 20px 20px;
@@ -243,7 +242,6 @@ input[type=radio] {
   font-size: .8em;
   margin: 0 auto;
 }
-
 .btn-reset {
   background: #CB4B19 url(../images/icons/icon_reset.png)  5px center no-repeat;
   background-size: 20px 20px;

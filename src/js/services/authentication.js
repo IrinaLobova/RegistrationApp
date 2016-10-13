@@ -1,11 +1,22 @@
 regApp.factory('Authentication', ['$rootScope', '$firebaseAuth', '$firebaseObject','$location', 'FIREBASE_URL',
 	function($rootScope, $firebaseAuth, $firebaseObject, $location, FIREBASE_URL){
 
-		var ref = new Firebase(FIREBASE_URL);
-		var auth = $firebaseAuth(ref);
+
+		var config = {
+  			apiKey: "AIzaSyDui1C_4QcM_NWqaMqxTpV0_-3DOFpPYpI",
+  			authDomain: "regapp-9f43d.firebaseapp.com",
+  			databaseURL: "https://regapp-9f43d.firebaseio.com"
+		};
+
+		firebase.initializeApp(config);
+		var rootRef = firebase.database().ref();
+
+		//var ref = new Firebase(FIREBASE_URL);
+		//var auth = $firebaseAuth(ref);
+		var auth = firebase.auth();
 
 		auth.$onAuth(function(authUser){
-			console.log($rootScope);
+			//console.log($rootScope);
 			if(authUser){
 				var userRef = new Firebase(FIREBASE_URL + 'users/' + authUser.uid);
 				var userObj = $firebaseObject(userRef);

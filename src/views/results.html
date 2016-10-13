@@ -1,2 +1,3 @@
-<div data-ng-repeat="item in searchService.results">The product name is {{ item.fullname }}</div>
-<div>test</div>
+<ul class="list-group">
+	<li class="list-group-item" data-ng-repeat="item in searchService.results">Product name: {{ item.fullname }}. </br> Type: {{ item.category }} </br> Skin: {{ item.skin }} url: {{ item.image }}</li>
+</ul>

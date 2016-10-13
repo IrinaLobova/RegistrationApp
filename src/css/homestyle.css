@@ -99,6 +99,7 @@ hr {
 .ingredientsexample {
 	line-height: 2.5em;
 	color: rgb(0,204,102);
+	margin-bottom: 2em;
 }
 .allergen {
 	color: orange;
@@ -114,6 +115,23 @@ hr {
 .ingredientscategory {
 	color: rgb(0,204,102);
 	line-height: 2.5em;
+	margin-bottom: 2em;
+}
+.arrow {
+	margin-top: 0.4em;
+	-ms-transform: rotate(-28deg); /* IE 9 */
+    -webkit-transform: rotate(-28deg); /* Chrome, Safari, Opera */
+    transform: rotate(-28deg);
+}
+.arrowtext {
+	color: #C66;
+	margin-top: -1em;
+}
+.arrow1 {
+	margin-top: 0.4em;
+	-ms-transform: rotate(200deg); /* IE 9 */
+    -webkit-transform: rotate(200deg); /* Chrome, Safari, Opera */
+    transform: rotate(200deg);
 }
 
 

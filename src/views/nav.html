@@ -8,8 +8,7 @@
 </div><!--brand-->
 
 <div ng-controller="SearchController" class="col-md-3 col-md-offset-3 col-md-push-1">
-	<input data-ng-model="q" type="search" name="search" placeholder="search" id="search">
-	<a ng-href="#/search" ng-click="doSearch()">Search</a>
+	<a ng-href="#/search"><input data-ng-model="q" type="search" name="search" placeholder="search" id="search" data-ng-change="doSearch()"></a>
 </div><!--search-->
 
 <ul class="col-sm-12 col-md-2 col-md-pull">
@@ -20,6 +19,4 @@
 		<a ng-href="#/login" ng-click="logout()" ng-show="currentUser">Logout</a>
 	</li>
 </ul><!--login/logout-->
-
-
 
