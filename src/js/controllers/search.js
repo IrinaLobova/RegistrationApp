@@ -1,15 +1,17 @@
-regApp.factory('searchService', ['$firebaseObject','$location', 'FIREBASE_URL', 
-	function( $firebaseObject, $location, FIREBASE_URL){
+regApp.factory('searchService', ['$firebaseObject', '$location',
+	function($firebaseObject, $location) {
 		var results = [];
+
 		function search(q) {
-			var productsRef = new Firebase(FIREBASE_URL + 'products');
+			var productsRef = firebase.database().ref().child('products');
 			var query = productsRef.orderByChild('brand');
 
 			query.once("value", function(snapshot) {
+                //$scope.snapshot = snapshot;
                 var new_results = [];
                 snapshot.forEach(function(data) {
                         var i = 0;
-                        if (data.key().startsWith(q)) {
+                        if (data.key.startsWith(q)) {
                                 var values = data.val();
                                 var result = new Object();
                                 result.fullname = values.fullname;
@@ -28,14 +30,14 @@ regApp.factory('searchService', ['$firebaseObject','$location', 'FIREBASE_URL',
 				console.log("The read failed: " + errors.code)
 			});
 		}
+
 		return {
 			results: results,
 			search: search
 		};
 }]);
 
-regApp.controller('SearchController', ['searchService','$scope', '$firebaseObject','$location', 'FIREBASE_URL',
-function(searchService, $scope, $firebaseObject, $location, FIREBASE_URL) {
+regApp.controller('SearchController', ['searchService','$scope', '$firebaseObject','$location', function(searchService, $scope, $firebaseObject, $location) {
 	//$scope.q = '';
 	$scope.searchService = searchService;
     $scope.searchService.results = searchService.results;
@@ -46,6 +48,4 @@ function(searchService, $scope, $firebaseObject, $location, FIREBASE_URL) {
     };
     //console.log($scope.q);
 }])
-
-
 

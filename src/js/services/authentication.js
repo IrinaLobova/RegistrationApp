@@ -1,38 +1,37 @@
-regApp.factory('Authentication', ['$rootScope', '$firebaseAuth', '$firebaseObject','$location', 'FIREBASE_URL',
-	function($rootScope, $firebaseAuth, $firebaseObject, $location, FIREBASE_URL){
+regApp.factory('Authentication', ['$rootScope', '$firebaseAuth', '$firebaseObject','$location', function($rootScope, $firebaseAuth, $firebaseObject, $location){
 
-
-		var config = {
-  			apiKey: "AIzaSyDui1C_4QcM_NWqaMqxTpV0_-3DOFpPYpI",
-  			authDomain: "regapp-9f43d.firebaseapp.com",
-  			databaseURL: "https://regapp-9f43d.firebaseio.com"
-		};
-
-		firebase.initializeApp(config);
-		var rootRef = firebase.database().ref();
+		//var rootRef = firebase.database().ref();
 
 		//var ref = new Firebase(FIREBASE_URL);
 		//var auth = $firebaseAuth(ref);
-		var auth = firebase.auth();
+		var auth = $firebaseAuth();
 
-		auth.$onAuth(function(authUser){
+        console.log("AUTH:");
+        console.log(auth);
+
+		auth.$onAuthStateChanged(function(authUser){
+
 			//console.log($rootScope);
-			if(authUser){
-				var userRef = new Firebase(FIREBASE_URL + 'users/' + authUser.uid);
+			if(authUser) {
+                    /*
+				var userRef = firebase.database().ref('users/' + authUser.uid);
 				var userObj = $firebaseObject(userRef);
-				$rootScope.currentUser = userObj; 
+				$rootScope.currentUser = userObj;
+                */
+                $rootScope.currentUser = authUser;
 			} else {
-				$rootScope.currentUser = ''; 
+				$rootScope.currentUser = '';
 				//$location.path('/login');
 			}
 		});
 
 		var authObject = {
 			login: function(user){
-				auth.$authWithPassword({
-					email: user.email,
-					password: user.password
-				}).then(function(regUser){
+				auth.$signInWithEmailAndPassword(
+                    user.email,
+                    user.password
+                ).then(function(regUser) {
+                        console.log(regUser);
 					$rootScope.message = "Welcome to SmartIngridients";
 					$location.path('/success');
 				}).catch(function(error){
@@ -42,20 +41,26 @@ regApp.factory('Authentication', ['$rootScope', '$firebaseAuth', '$firebaseObjec
 			},//login
 
 			logout: function(){
-				return auth.$unauth();
+				return auth.$signOut();
 			},//logout
 
 			requireAuth: function(){
-				return auth.$requireAuth();
+				return auth.$requireSignIn();
 			},//require Authentication
 
 			register: function(user){
-				auth.$createUser({
-					email: user.email, 
-					password: user.password
-				}).then(function(regUser){
-
-					var regRef = new Firebase(FIREBASE_URL + 'users')
+				auth.$createUserWithEmailAndPassword(
+                    user.email, user.password
+                ).then(function(regUser){
+                        regUser.updateProfile({
+                          displayName: user.fname + " " + user.lname
+                        }).then(function() {
+                            authObject.login(user);
+                        }, function(error) {
+                            $rootScope.message = error.message;
+                        });
+                        /*
+                    var regRef = firebase.database().ref('users/')
 					.child(regUser.uid).set({
 						date: Firebase.ServerValue.TIMESTAMP,
 						regUser: regUser.uid,
@@ -63,13 +68,14 @@ regApp.factory('Authentication', ['$rootScope', '$firebaseAuth', '$firebaseObjec
 						lastname: user.lname,
 						email: user.email
 					});//user info
-					authObject.login(user);
+                    */
 
 				}).catch(function(error){
 					$rootScope.message = error.message;
 				});//create user
 			}//register
 		};
+
 		return authObject;
 }]);//factory
 
