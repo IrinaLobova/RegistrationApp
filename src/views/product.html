@@ -1,0 +1,29 @@
+<div class="row">
+	<span class="col-md-4"><img ng-src="{{fullsizeImage}}" class="img-responsive fullsizeImage"></span>
+	<div>
+		<ul class="col-md-8 product_features">
+			<li>Product title:  {{title}}</li>
+			<li>Brand: {{brand}}</li>
+			<li>Skin type: {{skintype}}</li>
+			<li>Size: {{size}}</li>
+			<li>Category: {{category}}</li>
+			<li>Type: {{type}}</li>
+			<li>Description: {{description}}</li>
+			<br>
+			<li>Ingredients: <div ng-bind-html="ingredientslist">{{ingredientslist}}</div></li>
+		</ul>
+	</div>
+</div>
+<div class="row">
+	<h3>Ingredients by category</h3>
+	<ul class="ingredients_category">
+		<li><a ng-click="highlightAcne()">Anti-acne</a></li>
+		<li><a ng-href="#">Anti-age</a></li>
+		<li><a ng-href="#">Allergens</a></li>
+		<li><a ng-href="#">Moisturizers</a></li>
+		<li><a ng-href="#">Natural</a></li>
+		<li><a ng-href="#">Silicons</a></li>
+		<li><a ng-href="#">Useful</a></li>
+		<li><a href="#">UV protection</a></li>
+	</ul>
+</div>

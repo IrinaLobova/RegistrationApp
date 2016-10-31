@@ -1,3 +1,9 @@
+
 <ul class="list-group">
-	<li class="list-group-item" data-ng-repeat="item in searchService.results">Product name: {{ item.fullname }}. </br> Type: {{ item.category }} </br> Skin: {{ item.skin }} url: {{ item.image }}</li>
+	<li class="list-group-item row" data-ng-repeat="item in searchService.results">
+		<a ng-href="#/product/{{item.id}}">
+			<img ng-src="{{item.thumbnail}}" class="col-md-2 img-responsive"> 
+			<span class="col-md-6">{{ item.fullname }}. </br> Type: {{ item.category }} </br> Skin type: {{ item.skin }}</br>Size: {{item.size}}</span>
+		</a>
+	</li>
 </ul>

@@ -2,3 +2,15 @@
 	border: 1px solid;
 	margin-top: 1em;
 }
+.product_features {
+	margin-top: 2em;
+}
+.fullsizeImage {
+	margin-top: 2em;
+}
+.ingredients_category {
+	display: inline-grid;
+}
+.highlight {
+	background-color: yellow;
+}

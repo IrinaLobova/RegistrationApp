@@ -1,7 +1,11 @@
   
 html, body {
   overflow: auto !important;
+  height: 100%;
 }
+/*body {
+	background-color: #E1EBE6 !important;
+}*/
 .logoimage {
 	margin-top: 8px;
 	padding-right: 0 !important;
@@ -21,11 +25,12 @@ html, body {
 .brand .part {
 	color: #37AA3D;
 }
-.brand a:hover {
-	text-decoration: none;
+.brand h1 a {
+	text-decoration: none !important;
 }
 .exp {
 	text-align: center;
+	font-size: 18px;
 }
 hr {
 	width: 23em;
@@ -35,6 +40,7 @@ hr {
 	font-weight: 100;
 	font-size: 30px;
 	margin-bottom: 1em;
+	margin-top: 1.5em;
 }
 .circle {
   	position: relative;
@@ -49,7 +55,7 @@ hr {
 .circletext {
   	position: absolute;
   	width: 80%;
-  	font-size: 14px;
+  	font-size: 18px;
   	text-align: center;
   	top: 50%;
   	left: 50%;
@@ -58,7 +64,9 @@ hr {
 }
 .circle h4 {
 	text-align: center;
-	margin-top: 2em;
+	margin-top: 3em;
+	font-size: 22px;
+	color: #fff;
 }
 .number {
 	text-align: center;
@@ -132,6 +140,14 @@ hr {
 	-ms-transform: rotate(200deg); /* IE 9 */
     -webkit-transform: rotate(200deg); /* Chrome, Safari, Opera */
     transform: rotate(200deg);
+}
+footer {
+	background-color: #7A9688;
+	text-align: center;
+	margin-top: 3em !important;
+	height: 300px;
+	width: 100%;
+	position: absolute;
 }
 
 
