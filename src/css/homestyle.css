@@ -15,10 +15,6 @@ html, body {
 	margin: 0 !important;
 	padding-left: 3em;
 }
-.outline {
-	text-align: center;
-	color: #5E3C58;
-}
 .brand h1 a {
 	color: #B365D8;
 }
@@ -41,6 +37,8 @@ hr {
 	font-size: 30px;
 	margin-bottom: 1em;
 	margin-top: 1.5em;
+	text-align: center;
+	color: #5E3C58;
 }
 .circle {
   	position: relative;

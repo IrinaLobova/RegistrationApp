@@ -21,8 +21,10 @@ regApp.factory('searchService', ['$firebaseObject', '$location',
 						result.brand = values.brand;
 						result.description = values.description;
 						result.fullsize = values.fullsize;
+						result.type = values.type;
 						result.ingredientslist = values.ingredients.all;
-						result.acne = values.ingredients.acne;
+						result.ingredients = values.ingredients;
+
 						result.id = id++;
                         new_results.push(result);
                     }

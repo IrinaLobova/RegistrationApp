@@ -8,9 +8,16 @@
 .fullsizeImage {
 	margin-top: 2em;
 }
-.ingredients_category {
-	display: inline-grid;
+
+.ingredients_category li a {
+	text-decoration: none;
 }
 .highlight {
 	background-color: yellow;
+}
+.left {
+	font-weight: 100;
+	font-size: 30px;
+	margin-bottom: 1em;
+	margin-top: 1.5em;
 }

@@ -1,4 +1,5 @@
-regApp.factory('Authentication', ['$rootScope', '$firebaseAuth', '$firebaseObject','$location', function($rootScope, $firebaseAuth, $firebaseObject, $location){
+regApp.factory('Authentication', ['$rootScope', '$firebaseAuth', '$firebaseObject','$location', 
+	function($rootScope, $firebaseAuth, $firebaseObject, $location){
 
 		var auth = $firebaseAuth();
 
