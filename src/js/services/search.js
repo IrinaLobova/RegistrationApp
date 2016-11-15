@@ -1,5 +1,5 @@
-regApp.factory('searchService', ['$firebaseObject', '$location',
-	function($firebaseObject, $location) {
+regApp.factory('searchService', ['$firebaseObject', '$q', '$firebaseArray', '$location',
+	function($firebaseObject, $q , $firebaseArray, $location) {
 		var results = [];
 
 		function search(q) {
@@ -38,20 +38,28 @@ regApp.factory('searchService', ['$firebaseObject', '$location',
 		}
 
 		function getProduct(pid) {
-			var productRef = firebase.database().ref().child('products/' + pid);
+			var defer = $q.defer();
+			var productRef = firebase.database().ref().child('products');
     		console.log("bar");
+
+    		//var products = $firebaseArray(productRef);
     
 		    var query = productRef.orderByChild('brand');
-		    /*
-		    for (var i = 0; i < $scope.products.length; i++) {
-        console.log("item = " + $scope.products[i].$id);
-        if (pid === $scope.products[i].$id) {
-            $scope.currentProduct = $scope.products[i];
-            break;
-        }
-    }
-    */
-		    return "baz"; 
+		   	query.once("value", function(snapshot) {
+		   		console.log('here');
+                snapshot.forEach(function(data) {
+					console.log("key is " + data.key);
+                    if (data.key === pid) {
+						console.log('key found');
+                        defer.resolve(data.val());
+                    }
+                });
+
+			}, function(errors) {
+				console.log("The read failed: " + errors.code)
+			});
+
+    		return defer.promise;
 		}
 		
 		return {
