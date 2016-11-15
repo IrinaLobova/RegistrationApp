@@ -23,7 +23,7 @@
             };
 
             firebase.initializeApp(config);
-        console.log("Initialized");
+        //console.log("Initialized");
     </script>
 
 </head>
@@ -33,16 +33,10 @@
 	<nav class="cf" ng-include="'views/nav.html'"></nav>
 </header>
 <div class="page">
-    <div ng-controller="SearchController" class="row">
-        <a ng-href="#/search"><input data-ng-model="q" type="search" name="search" placeholder="search" data-ng-change="doSearch()"></a>
-    </div><!--search-->
-
   	<main class="cf" ng-view></main>
 </div>
-<!--
 <div class="footer">
     SmartIngredients, 2016 (c)
 </div>
--->
 </body>
 </html>

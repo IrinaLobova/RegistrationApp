@@ -3,8 +3,8 @@ regApp.factory('Authentication', ['$rootScope', '$firebaseAuth', '$firebaseObjec
 
 		var auth = $firebaseAuth();
 
-        console.log("AUTH:");
-        console.log(auth);
+        //console.log("AUTH:");
+        //console.log(auth);
 
 		auth.$onAuthStateChanged(function(authUser){
 			if(authUser) {

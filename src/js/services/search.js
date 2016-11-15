@@ -25,7 +25,7 @@ regApp.factory('searchService', ['$firebaseObject', '$location',
 						result.ingredientslist = values.ingredients.all;
 						result.ingredients = values.ingredients;
 
-						result.id = id++;
+						result.id = data.key;
                         new_results.push(result);
                     }
                 });
@@ -37,8 +37,26 @@ regApp.factory('searchService', ['$firebaseObject', '$location',
 			});
 		}
 
+		function getProduct(pid) {
+			var productRef = firebase.database().ref().child('products/' + pid);
+    		console.log("bar");
+    
+		    var query = productRef.orderByChild('brand');
+		    /*
+		    for (var i = 0; i < $scope.products.length; i++) {
+        console.log("item = " + $scope.products[i].$id);
+        if (pid === $scope.products[i].$id) {
+            $scope.currentProduct = $scope.products[i];
+            break;
+        }
+    }
+    */
+		    return "baz"; 
+		}
+		
 		return {
 			results: results,
-			search: search
+			search: search,
+			getProduct: getProduct
 		};
 }]);

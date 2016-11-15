@@ -33,6 +33,10 @@ regApp.config(['$routeProvider', function($routeProvider){
 			templateUrl: 'views/product.html',
 			controller: 'ProductController'
 		}).
+		when('/wishlist', {
+			templateUrl: 'views/wishlist.html',
+			controller: 'WishListController'
+		}).
 		when('/success', {
 			templateUrl: 'views/success.html',
 			controller: 'SuccessController',

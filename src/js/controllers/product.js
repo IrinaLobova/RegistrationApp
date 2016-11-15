@@ -1,13 +1,13 @@
-regApp.controller('ProductController', ['searchService','$scope', '$firebaseObject','$location', '$filter', 
-	function(searchService, $scope, $firebaseObject, $location, $filter) {
+
+regApp.controller('ProductController', 
+    ['searchService', 'visualization', '$scope', '$rootScope', '$firebaseArray', '$location', 
+	   function(searchService, visualization, $scope, $rootScope, $firebaseArray, $location) {
+
     var lastSlashIndex = $location.path().lastIndexOf('/')
-    var searchResultId = $location.path().substring(lastSlashIndex + 1);
-    var currentProduct = searchService.results[searchResultId];
-
-    /***** product features *****/
-    $scope.currentProduct = currentProduct;
-
-    /***** interactive ingredients list (highlights) ******/
+    var pid = $location.path().substring(lastSlashIndex + 1);
+    
+    var currentProduct = searchService.getProduct(pid);
+    var preprocessShares = visualization.preprocessShares; 
 
     $scope.ingredientslist = currentProduct.ingredientslist;
 
@@ -21,18 +21,13 @@ regApp.controller('ProductController', ['searchService','$scope', '$firebaseObje
 						uv: 'uv'
 					  }
 
-	var splitIngredients = function(str) {
-		return str.split(",").map(function(str) {
-    		return str.trim();
-    	});
-	}
 
     //console.log("ingredients "+ $scope.ingredientslist);
     $scope.highlight = function(categoryName) {
     	var category = currentProduct.ingredients[categoryName];
-    	category = splitIngredients(category);
+    	category = visualization.splitIngredients(category);
 
-    	var allIngredients = splitIngredients(currentProduct.ingredientslist);
+    	var allIngredients = visualization.splitIngredients(currentProduct.ingredientslist);
 
 
   		for (var i = 0; i < category.length; i++) {
@@ -48,40 +43,26 @@ regApp.controller('ProductController', ['searchService','$scope', '$firebaseObje
 		$scope.ingredientslist = allIngredients.join(", ");
     };
 
-    var ingredientsShares = [];
-    angular.forEach(currentProduct.ingredients, function(value, key) {
-    	if (key !== "all" && value !== "") {
-    		var pair = { label: key, size: splitIngredients(value).length }
-    		this.push(pair);
-    	}
-	}, ingredientsShares);
-    
-    var preprocessShares = function(shares) {
-    	//["Anti-Acne", "Anti-Age", "Allergens", "Moisturizers", "Natural", "Silicons", "Useful", "UV protection"];
-    	var labels = shares.map(function(pair) { return pair.label } );
-    	var sizes = shares.map(function(pair) { return pair.size } );
 
-    	for (var i = 0; i < labels.length; i++){
-    		if (labels[i] === "acne") {
-    			labels[i] = "Anti-" + labels[i];
-    		} else if (labels[i] === "age") {
-    			labels[i] = "Anti-" + labels[i];
-    		} else if (labels[i] === "uv") {
-    			labels[i] = labels[i].charAt(0).toUpperCase() + labels[i].slice(1) + "-protection";
-    		} else {
-    			labels[i] = labels[i].charAt(0).toUpperCase() + labels[i].slice(1);
-    		}
-    	}
-    	
-    	return {
-    		labels: labels, 
-    		sizes: sizes
-    	}
-    }
-
-    var donutData = preprocessShares(ingredientsShares);
+    var donutData = preprocessShares(currentProduct.ingredients);
 
    	$scope.labels = donutData.labels;
   	$scope.data = donutData.sizes;
 
-}])
+    //adding to wishlist
+
+    $scope.addProduct = function () {
+
+        console.log($scope.currentProduct);
+
+        var wishlistRef = firebase.database().ref().child('wishlist/' + $scope.currentUser.uid);
+
+        $firebaseArray(wishlistRef).$add({
+            pid: $scope.currentProduct.id,
+            title: $scope.currentProduct.fullname,
+            img: $scope.currentProduct.thumbnail
+        });
+
+    };
+
+}]);

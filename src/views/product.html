@@ -1,7 +1,10 @@
+<div ng-include="'views/search.html'"></div>
+
 <div class="row">
 	<span class="col-md-4"><img ng-src="{{currentProduct.fullsize}}" class="img-responsive fullsizeImage"></span>
 	<div class="col-md-8">
 		<ul class="product_features">
+			<li class="wishlist" ng-show="currentUser"><button class="btn" ng-click="addProduct()">Add to Wish List</button></li>
 			<li>Product title:  {{currentProduct.fullname}}</li>
 			<li>Brand: {{currentProduct.brand}}</li>
 			<li>Skin type: {{currentProduct.skin}}</li>

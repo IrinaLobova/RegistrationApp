@@ -3,8 +3,8 @@ regApp.controller('SearchController', ['searchService','$scope', '$firebaseObjec
     $scope.searchService.results = searchService.results;
     //console.log($scope.searchService.results);
 
+
     $scope.doSearch = function () {
         $scope.searchService.search($scope.q);
     };
-}])
-
+}]);
