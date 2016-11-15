@@ -48,9 +48,9 @@ regApp.factory('searchService', ['$firebaseObject', '$q', '$firebaseArray', '$lo
 		   	query.once("value", function(snapshot) {
 		   		console.log('here');
                 snapshot.forEach(function(data) {
-					console.log("key is " + data.key);
+					//console.log("key is " + data.key);
                     if (data.key === pid) {
-						console.log('key found');
+						//console.log('key found');
                         defer.resolve(data.val());
                     }
                 });

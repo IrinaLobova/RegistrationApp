@@ -5,10 +5,22 @@ regApp.controller('ProductController',
 
     var lastSlashIndex = $location.path().lastIndexOf('/')
     var pid = $location.path().substring(lastSlashIndex + 1);
+    
+    var wishlistRef = firebase.database().ref().child('wishlist/' + $scope.currentUser.uid);
+    $scope.wishlist = $firebaseArray(wishlistRef);
+        
+    //adding to wishlist
 
+    $scope.addProduct = function (currentProduct) {
+
+        $scope.wishlist.$add({
+            pid: pid,
+            title: currentProduct.fullname,
+            img: currentProduct.url
+        });
+    }; 
 
     searchService.getProduct(pid).then(function(currentProduct){
-        console.log(currentProduct);
         currentProduct.ingredientslist = currentProduct.ingredients.all;
         $scope.currentProduct = currentProduct;
         var preprocessShares = visualization.preprocessShares; 
@@ -23,10 +35,9 @@ regApp.controller('ProductController',
                             silicones: 'silicones',
                             useful: 'useful',
                             uv: 'uv'
-                            }
+                        };
 
-
-        //console.log("ingredients "+ $scope.ingredientslist);
+        //highlighting ingredients (interactive ingredients list)
         $scope.highlight = function(categoryName) {
             var category = currentProduct.ingredients[categoryName];
             category = visualization.splitIngredients(category);
@@ -35,11 +46,8 @@ regApp.controller('ProductController',
 
 
             for (var i = 0; i < category.length; i++) {
-                //console.log($scope.ingredientslist);
                 for (var j = 0; j < allIngredients.length; j++) {
-                    //console.log(allIngredients[j]);
                     if (category[i] === allIngredients[j]){
-                        //console.log('found');
                         allIngredients[j] =  '<span class="highlight">' + allIngredients[j] + '</span>'
                     }
                 }
@@ -52,21 +60,5 @@ regApp.controller('ProductController',
 
         $scope.labels = donutData.labels;
         $scope.data = donutData.sizes;
-
-        //adding to wishlist
-
-        $scope.addProduct = function () {
-
-            console.log($scope.currentProduct);
-
-            var wishlistRef = firebase.database().ref().child('wishlist/' + $scope.currentUser.uid);
-
-            $firebaseArray(wishlistRef).$add({
-                pid: $scope.currentProduct.id,
-                title: $scope.currentProduct.fullname,
-                img: $scope.currentProduct.thumbnail
-            });
-
-        }; // end of addProduct
     });//end of getProduct
 }]);
