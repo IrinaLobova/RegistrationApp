@@ -1,4 +1,4 @@
-var regApp = angular.module('regApp', ['ngSanitize', 'ngRoute', 'firebase', 'chart.js'])
+var regApp = angular.module('regApp', ['ngSanitize', 'ngCookies', 'ngRoute', 'firebase', 'chart.js'])
 	.constant('FIREBASE_URL', 'https://regapp-9f43d.firebaseio.com/');
 
 regApp.run(['$rootScope', '$location', function($rootScope, $location){

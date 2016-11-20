@@ -20,7 +20,7 @@ regApp.factory('Authentication', ['$rootScope', '$firebaseAuth', '$firebaseObjec
                     user.email,
                     user.password
                 ).then(function(regUser) {
-                        console.log(regUser);
+                        //console.log(regUser);
 					$rootScope.message = "Welcome to SmartIngridients";
 					$location.path('/success');
 				}).catch(function(error){

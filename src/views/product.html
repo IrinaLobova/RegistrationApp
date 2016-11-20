@@ -4,8 +4,8 @@
 	<span class="col-md-4"><img ng-src="{{currentProduct.fullsize}}" class="img-responsive fullsizeImage"></span>
 	<div class="col-md-8">
 		<ul class="product_features">
-			<li class="wishlist" ng-show="currentUser">
-				<button class="btn" ng-click="addProduct(currentProduct)">Add to Wish List</button>
+			<li class="wishlist">
+				<button class="btn" ng-show="currentUser" ng-click="addProduct(currentProduct)">Add to Wish List</button>
 			</li>
 			<li>Product title: {{currentProduct.fullname}}</li>
 			<li>Brand: {{currentProduct.brand}}</li>
