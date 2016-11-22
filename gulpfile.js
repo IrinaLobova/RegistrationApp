@@ -5,6 +5,7 @@ var minifycss = require('gulp-minify-css');
 var jshint = require('gulp-jshint');
 var connect = require('gulp-connect');
 var gutil = require('gulp-util');
+var ghPages = require('gulp-gh-pages');
 
 
 // *******************************************
@@ -69,5 +70,11 @@ gulp.task('watch', function(){
 });
 
 // *******************************************
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
+});
 
-gulp.task('default', ['build', 'watch', 'connect']);
+// *******************************************
+
+gulp.task('default', ['build', 'watch', 'connect', 'deploy']);
