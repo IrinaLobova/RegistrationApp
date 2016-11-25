@@ -1,5 +1,28 @@
 <div ng-include="'views/search.html'"></div>
 
+<!--Filters-->
+<div class="row">
+	<div class="col-md-6">
+		<!-- Single button -->
+		<div class="btn-group">
+ 			<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    			By skin type <span class="caret"></span>
+  			</button>
+  			<ul class="dropdown-menu">
+    			<li><a href="#">Normal</a></li>
+    			<li><a href="#">Dry</a></li>
+    			<li><a href="#">Combination</a></li>
+    			<li role="separator" class="divider"></li>
+    			<li><a href="#">All skin types</a></li>
+  			</ul>
+		</div>
+	</div>
+	<div class="col-md-6">
+		
+	</div>	
+</div>
+
+<!--Results list-->
 <ul class="list-group">
 	<li class="list-group-item row" data-ng-repeat="item in searchService.results">
 		<a ng-href="#/product/{{item.id}}">
