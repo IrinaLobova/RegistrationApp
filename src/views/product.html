@@ -5,7 +5,10 @@
 	<div class="col-md-8">
 		<ul class="product_features">
 			<li class="wishlist">
-				<button class="btn btn-success" ng-show="currentUser" ng-click="addProduct(currentProduct)">Add to Wish List</button>
+				<button class="btn btn-success btn-block" ng-show="currentUser" ng-click="addProduct(currentProduct)">Add to Wish List</button>
+			</li>
+			<li class="amazonlink">
+				<a class="btn btn-warning btn-block" ng-href="{{currentProduct.amazon}}">Buy on Amazon</a>
 			</li>
 			<li>Product title: {{currentProduct.fullname}}</li>
 			<li>Brand: {{currentProduct.brand}}</li>
@@ -17,8 +20,8 @@
 			<br>
 			<li>Ingredients: <div ng-bind-html="ingredientslist">{{currentProduct.ingredientslist}}</div></li>
 		</ul>
-<!-- 		<div class="row">
- -->	<h3 class="left">Ingredients by category</h3>
+
+ 	<h3 class="left">Ingredients by category</h3>
 	<ul class="ingredients_category">
 		<div class="col-md-4">
 		<li><a ng-click="highlight(category.acne)">Anti-acne</a></li>
@@ -33,8 +36,7 @@
 		<li><a ng-click="highlight(category.uv)">UV protection</a></li>
 		</div>
 	</ul>
-<!-- </div>
- --></div>
+	</div>
 </div>
 
 <div class="row">

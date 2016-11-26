@@ -7,4 +7,16 @@ regApp.controller('SearchController', ['searchService','$scope', '$firebaseObjec
     $scope.doSearch = function(){
         $scope.searchService.search($scope.q);
     };
+
+    //Filters
+
+    $scope.filterBySkin = function(){
+
+    }
+
+    $scope.filterByType = function(){
+
+    }
+
+
 }]);

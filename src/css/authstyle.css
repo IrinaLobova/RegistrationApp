@@ -1,8 +1,5 @@
 /* apply a natural box layout model to all elements, but allowing components to change */
 
-html {
-  box-sizing: border-box;
-}
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -20,7 +17,7 @@ dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
+figure, figcaption, footer, .header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
   margin: 0;
@@ -29,10 +26,6 @@ time, mark, audio, video {
   font: inherit;
   font-size: 100%;
   vertical-align: baseline; 
-}
-
-html {
-  line-height: 1; 
 }
 
 ol, ul {
@@ -48,18 +41,18 @@ ol, ul {
 }
 
 .cf:after {
-    clear: both;
+  clear: both;
 }
 
 html {
   background-color: #F7F7F7;
-  height: auto;
-  overflow: hidden;
+  height: 100%;
+  box-sizing: border-box;
+  line-height: 1; 
 }
 
 body  {
-  height: auto;
-  overflow: hidden;
+  min-height: 100%;
   font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
   font-size: 1rem;
   line-height: 160%;
@@ -100,7 +93,7 @@ a {
   font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
 }
 
-header {
+.header {
   margin-bottom: 20px;
 }
 
@@ -202,8 +195,6 @@ input[type=radio] {
 }
 
 
-/*.btn .btn-left { float: left; }
-.btn .btn-right { float: right; }*/
 .authbtn:hover { background-color: #DC322F; }
 
 

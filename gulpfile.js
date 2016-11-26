@@ -28,7 +28,9 @@ gulp.task('buildVendor', function(){
     'bower_components/angularfire/dist/angularfire.min.js',
     'bower_components/jquery/dist/jquery.min.js',
     'bower_components/chart.js/dist/Chart.min.js',
-    'bower_components/angular-chart.js/dist/angular-chart.min.js'])
+    'bower_components/angular-chart.js/dist/angular-chart.min.js',
+    'bower_components/bootstrap/js/tooltip.js',
+    'bower_components/bootstrap/js/**/*.js'])
     .pipe(concat('vendors.js'))
     .pipe(uglify())
     .pipe(gulp.dest('dist'));

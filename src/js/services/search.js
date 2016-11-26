@@ -8,7 +8,7 @@ regApp.factory('searchService', ['$firebaseObject', '$q', '$firebaseArray', '$lo
 
 			query.once("value", function(snapshot) {
                 var new_results = [];
-                var id = 0;
+                //var id = 0;
                 snapshot.forEach(function(data) {
                     if (data.key.startsWith(q)) {
                         var values = data.val();
@@ -24,6 +24,7 @@ regApp.factory('searchService', ['$firebaseObject', '$q', '$firebaseArray', '$lo
 						result.type = values.type;
 						result.ingredientslist = values.ingredients.all;
 						result.ingredients = values.ingredients;
+						result.amazon = values.amazon;
 
 						result.id = data.key;
                         new_results.push(result);
@@ -40,13 +41,13 @@ regApp.factory('searchService', ['$firebaseObject', '$q', '$firebaseArray', '$lo
 		function getProduct(pid) {
 			var defer = $q.defer();
 			var productRef = firebase.database().ref().child('products');
-    		console.log("bar");
+    		//console.log("bar");
 
     		//var products = $firebaseArray(productRef);
     
 		    var query = productRef.orderByChild('brand');
 		   	query.once("value", function(snapshot) {
-		   		console.log('here');
+		   		//console.log('here');
                 snapshot.forEach(function(data) {
 					//console.log("key is " + data.key);
                     if (data.key === pid) {

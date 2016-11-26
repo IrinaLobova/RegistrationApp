@@ -30,4 +30,19 @@
 }
 .wishlist {
 	float: right;
+	width: 100%;
+}
+.amazonlink {
+	width: 100%;
+	float: right;
+	clear: both;
+	margin-top: 0.5em;
+	margin-bottom: 2em;
+}
+
+.page {
+	min-height: 100%;
+}
+.btn-group {
+	width: 100%;
 }
