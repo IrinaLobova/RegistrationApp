@@ -15,7 +15,8 @@ regApp.run(['$rootScope', '$location', function($rootScope, $location){
 regApp.config(['$routeProvider', function($routeProvider){
 	$routeProvider.
 		when('/home', {
-			templateUrl: 'views/home.html'
+			templateUrl: 'views/home.html',
+			controller: 'HomePageController'
 		}).
 		when('/search', {
 			templateUrl: 'views/results.html',
