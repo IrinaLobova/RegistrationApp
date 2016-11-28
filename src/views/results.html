@@ -3,20 +3,38 @@
 <!--Filters-->
 <div class="row">
 	<div class="col-md-2 col-md-offset-8">
+            <!--
 		  <select class="form-control btn-block btn-info">
           <option value="all">All skin types</option>
           <option value="dry">Dry skin</option>
           <option value="normal">Normal skin</option>
           <option value="combination">Combination skin</option>
-      </select>
+          </select>
+          -->
+        <select
+          name="skinType"
+          id="skinType"
+          class="form-control btn-block btn-info"
+          ng-options="item.name for item in data.skinOptions"
+          ng-model="selectedSkinOption"
+          ng-change="filterBySkin(selectedSkinOption)"></select>
 	</div>
 	<div class="col-md-2">
+        <select
+          name="skinType"
+          id="skinType"
+          class="form-control btn-block btn-info"
+          ng-options="item.name for item in data.typeOptions"
+          ng-model="selectedTypeOption"
+          ng-change="filterByType(selectedTypeOption)"></select>
+        <!--
       <select class="form-control btn-block btn-info">
           <option value="all">All product types</option>
           <option value="dry">Cleanser</option>
           <option value="normal">Cream</option>
       </select>
-	</div>	
+        -->
+	</div>
 </div>
 </br>
 
@@ -24,7 +42,7 @@
 <ul class="list-group">
 	<li class="list-group-item row" data-ng-repeat="item in searchService.results">
 		<a ng-href="#/product/{{item.id}}">
-			<img ng-src="{{item.thumbnail}}" class="col-md-2 img-responsive"> 
+			<img ng-src="{{item.thumbnail}}" class="col-md-2 img-responsive">
 			<span class="col-md-6">{{ item.fullname }}. </br> Type: {{ item.category }} </br> Skin type: {{ item.skin }}</br>Size: {{item.size}}</span>
 		</a>
 	</li>

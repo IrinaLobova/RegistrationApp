@@ -1,6 +1,7 @@
 regApp.factory('searchService', ['$firebaseObject', '$q', '$firebaseArray', '$location',
 	function($firebaseObject, $q , $firebaseArray, $location) {
 		var results = [];
+        var copyResults = [];
 
 		function search(q) {
 			var productsRef = firebase.database().ref().child('products');
@@ -32,6 +33,7 @@ regApp.factory('searchService', ['$firebaseObject', '$q', '$firebaseArray', '$lo
                 });
                 
 				angular.copy(new_results, results);
+				angular.copy(new_results, copyResults);
 				//console.log(new_results);
 			}, function(errors) {
 				console.log("The read failed: " + errors.code)
@@ -44,7 +46,7 @@ regApp.factory('searchService', ['$firebaseObject', '$q', '$firebaseArray', '$lo
     		//console.log("bar");
 
     		//var products = $firebaseArray(productRef);
-    
+
 		    var query = productRef.orderByChild('brand');
 		   	query.once("value", function(snapshot) {
 		   		//console.log('here');
@@ -62,10 +64,16 @@ regApp.factory('searchService', ['$firebaseObject', '$q', '$firebaseArray', '$lo
 
     		return defer.promise;
 		}
-		
+
+        function updateResults(new_results) {
+                angular.copy(new_results, results);
+        }
+
 		return {
 			results: results,
 			search: search,
-			getProduct: getProduct
+			getProduct: getProduct,
+            updateResults: updateResults,
+            getQueryResults: copyResults
 		};
 }]);
