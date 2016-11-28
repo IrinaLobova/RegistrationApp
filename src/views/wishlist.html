@@ -1,4 +1,4 @@
-<h2 ng-show="wishlist == null || wishlist.length === 0">Your wishlist is empty. Go <a href="#/search">search</a> for new products and save any product you like here!</h2>
+<h2 class="emptywishlist" ng-show="wishlist == null || wishlist.length === 0">Your wishlist is empty. Go <a href="#/search">search</a> for new products and save any product you like here!</h2>
 <ul class="list-group">
 <li class="list-group-item row" data-ng-repeat="item in wishlist">
 	<a ng-href="#/product/{{item.pid}}">

@@ -1,16 +1,16 @@
-<div class="userinfo row" ng-show="currentUser">
+<div class="userinfo row section" ng-show="currentUser">
     <span class="userinfo">Hi {{ currentUser.displayName }}!</span>
 </div>
 
-<div ng-include="'views/search.html'" class="row"></div>
+<div ng-include="'views/search.html'" class="row section"></div>
 
 
-<h2 class="outline row"> Smarter way to choose your cosmetics</h2></br>
-<p class="exp row">Do you want to have healthy skin and save its youth and beauty for long time?</br>  Find out how to check quickly your cosmetic for effectivness and naturallity!</p>
+<h2 class="outline row section"> Smarter way to choose your cosmetics</h2></br>
+<p class="exp row section">Do you want to have healthy skin and save its youth and beauty for long time?</br>  Find out how to check quickly your cosmetic for effectivness and naturallity!</p>
 
 <!--Circles area -->
-<div class="outline row">Why should I check?</div></br>
-<div class="row">
+<div class="outline row section">Why should I check?</div></br>
+<div class="row section">
 	<div class="circle col-md-3">
 		<h4>Safety</h4>
 		<div class="circletext">Not every cosmetic product is safe for your skin. Some of them could contain ingredients that might cause allergy.
@@ -30,8 +30,8 @@
 </div>
 
 <!--Numbered columns area-->
-<h3 class="outline row">How can SmartIngredients help?</h3></br>
-<div class="row">
+<h3 class="outline row section">How can SmartIngredients help?</h3></br>
+<div class="row section">
 	<span class="number col-md-1">1</span>
 	<div class="numbertext col-md-2">Find out what ingredients containing in your cosmetics could cause allergy.</div>
 	<span class="number col-md-1 col-md-offset-1">2</span>
@@ -41,7 +41,7 @@
 </div>
 	
 
-<div class="instruction row">
+<div class="instruction row section">
 	<h4>Choose cosmetics like a PRO</h4>
 	</br>
 	<div class="instructiontext">
@@ -52,8 +52,8 @@
 </div>
 
 <!-- Smart Ingredients List Example -->
-<h3 class="outline row">Smart Ingredients List Example</h3>
-<div class="row">
+<h3 class="outline row section">Smart Ingredients List Example</h3>
+<div class="row section">
 	<div class="col-md-2 arrowtext">All ingredients in list are divided by category.</div>
 	<div class="col-md-1 arrow"><img src="http://gdurl.com/bj6u" alt="arrow" class="img-responsive"></div>
 	<div class="col-md-6 ingredientsexample">
@@ -64,8 +64,8 @@
 </div>
 
 <!--Categories-->
-<h4 class="centred row">Ingredients by Category</h4>
-<div class="row">
+<h4 class="centred row section">Ingredients by Category</h4>
+<div class="row section">
 	<div class="col-md-2 arrowtext">Click on a category and its ingredients will be highlighted in the list</div>
 	<div class="col-md-1 arrow"><img src="http://gdurl.com/bj6u" alt="arrow" class="img-responsive"></div>
 	<ul class="col-md-3 ingredientscategory">
@@ -83,14 +83,14 @@
 </div>
 
 <!--Diagrams-->
-<div class="row">
+<div class="row section">
 	<div class="col-md-4 col-md-offset-2"><h3 class="diagram">Ingredients Diagramm</h3>
 		<canvas id="doughnut" class="chart chart-doughnut"
 				chart-data="data" chart-labels="labels">
 		</canvas> 
 	</div>
 	<div class="col-md-4"><h3 class="diagram">Ingredients Safeness</h3>
-		<canvas id="doughnut" class="chart chart-doughnut"
+		<canvas id="doughnut1" class="chart chart-doughnut"
 				chart-data="data1" chart-labels="labels1">
 		</canvas> 
 	</div>
@@ -98,12 +98,12 @@
 <hr>
 
 
-<h3 class="outline row">What I do Next?</h3>
-<div class="row">
+<h3 class="outline row section">What I do Next?</h3>
+<div class="row section">
 	<div class="col-md-6 col-md-offset-4"> Search for a product  you currectly use:</a></div>
 </div>
 
-<div class="row">	
+<div class="row section">	
 	<div ng-controller="SearchController" class="col-md-6 col-md-offset-4">
 		<a ng-href="#/search"><input data-ng-model="q" type="search" name="search" placeholder="search" id="search" data-ng-change="doSearch()"></a>
 	</div><!--search-->
