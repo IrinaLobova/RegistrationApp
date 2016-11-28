@@ -1,114 +1,110 @@
-<div class="userinfo" ng-show="currentUser">
+<div class="userinfo row" ng-show="currentUser">
     <span class="userinfo">Hi {{ currentUser.displayName }}!</span>
 </div>
 
-<div ng-include="'views/search.html'"></div>
+<div ng-include="'views/search.html'" class="row"></div>
 
-<div>
 
-	<h2 class="outline"> Smarter way to choose your cosmetics</h2></br>
-	<p class="exp">Do you want to have healthy skin and save its youth and beauty for long time?</br>  Find out how to check quickly your cosmetic for effectivness and naturallity!</p>
+<h2 class="outline row"> Smarter way to choose your cosmetics</h2></br>
+<p class="exp row">Do you want to have healthy skin and save its youth and beauty for long time?</br>  Find out how to check quickly your cosmetic for effectivness and naturallity!</p>
 
-	<!--Circles area -->
-	<div class="outline">Why should I check?</div></br>
-	<div class="row">
-		<div class="circle col-md-3">
-			<h4>Safety</h4>
-			<div class="circletext">Not every cosmetic product is safe for your skin. Some of them could contain ingredients that might cause allergy.
-			</div>
+<!--Circles area -->
+<div class="outline row">Why should I check?</div></br>
+<div class="row">
+	<div class="circle col-md-3">
+		<h4>Safety</h4>
+		<div class="circletext">Not every cosmetic product is safe for your skin. Some of them could contain ingredients that might cause allergy.
 		</div>
-		<div class="circle col-md-3 col-md-offset-1">
-			<h4>Effectiveness</h4>
-			<div class="circletext"> Every skin type or condition has special needs that require targeted care or treatment.
-			</div>
-		</div>
-		<div class="circle col-md-3 col-md-offset-1">
-			<h4>Awareness</h4>
-			<div class="circletext"> Some of us prefer to use organic cosmetics or choose products that aren't tested on animals.
-			</div>
-		</div>
-	</div></br>
-	<hr>
-
-	<!--Numbered columns area-->
-	<h3 class="outline">How can SmartIngredients help?</h3></br>
-	<div class="row">
-		<span class="number col-md-1">1</span>
-		<div class="numbertext col-md-2">Find out what ingredients containing in your cosmetics could cause allergy.</div>
-		<span class="number col-md-1 col-md-offset-1">2</span>
-		<div class="numbertext col-md-2">Effectiveness is crucial! Check what ingredients target your skin needs or problems.</div>
-		<span class="number col-md-1 col-md-offset-1">3</span>
-		<div class="numbertext col-md-2">We are here to help you choose organic and cruelty-free cosmetics!</div>
 	</div>
+	<div class="circle col-md-3 col-md-offset-1">
+		<h4>Effectiveness</h4>
+		<div class="circletext"> Every skin type or condition has special needs that require targeted care or treatment.
+		</div>
+	</div>
+	<div class="circle col-md-3 col-md-offset-1">
+		<h4>Awareness</h4>
+		<div class="circletext"> Some of us prefer to use organic cosmetics or choose products that aren't tested on animals.
+		</div>
+	</div>
+	<hr>
+</div>
+
+<!--Numbered columns area-->
+<h3 class="outline row">How can SmartIngredients help?</h3></br>
+<div class="row">
+	<span class="number col-md-1">1</span>
+	<div class="numbertext col-md-2">Find out what ingredients containing in your cosmetics could cause allergy.</div>
+	<span class="number col-md-1 col-md-offset-1">2</span>
+	<div class="numbertext col-md-2">Effectiveness is crucial! Check what ingredients target your skin needs or problems.</div>
+	<span class="number col-md-1 col-md-offset-1">3</span>
+	<div class="numbertext col-md-2">We are here to help you choose organic and cruelty-free cosmetics!</div>
+</div>
 	
 
-	<!-- Beginner Pro Instructions -->
-<!-- 	<h3 class="outline">How to use SmartIngredients?</h3></br>
- -->	
-  	<div class="row">
-		<div class="instruction">
-			<h4>Choose cosmetics like a PRO</h4>
-			</br>
-			<div class="instructiontext">
-				Every product has smart ingredients list. There is a list of ingredients categories after each list. Click on a category and all its ingredients will be highlighted in the list. 
-				</br></br>
-				Even more simple? - There are charts reflecting number of ingredients of aech category and product safeness. 
-			</div>
-		</div>
-	</div>
+<div class="instruction row">
+	<h4>Choose cosmetics like a PRO</h4>
 	</br>
-	<!-- Smart Ingredients List Example -->
-	<h3 class="outline">Smart Ingredients List Example</h3>
-	<div class="row">
-		<div class="col-md-2 arrowtext">All ingredients in list are divided by category.</div>
-		<div class="col-md-1 arrow"><img src="http://gdurl.com/bj6u" alt="arrow" class="img-responsive"></div>
-		<div class="col-md-6 ingredientsexample">
-		Aqua, Mineral Oil, Dimethicone, Caprylic/Capric Triglyceride, Chamomile Extract, Acetyl Hexapeptide-8, Jojoba Seed Oil, Alcohol, Niacinamide, Cera Alba, Titanium Dioxide, Malva Sylvestris (Mallow) Extract, Methylparaben, Ceteareth-20, <span class="highlighted">Hyaluronic Acid</span>            	
-		</div>
-		<div class="col-md-1 arrow1"><img src="http://gdurl.com/cePU" alt="arrow" class="img-responsive"></div>
-		<div class="col-md-2 arrowtext">If you want to check product for allergens, click allergens below.</div>
+	<div class="instructiontext">
+		Every product has smart ingredients list. There is a list of ingredients categories after each list. Click on a category and all its ingredients will be highlighted in the list. 
+		</br></br>
+		Even more simple? - There are charts reflecting number of ingredients of aech category and product safeness. 
 	</div>
+</div>
 
-	<!--Categories-->
-	<h4 class="centred">Ingredients by Category</h4>
-	<div class="row">
-		<div class="col-md-2 arrowtext">Click on a category and its ingredients will be highlighted in the list</div>
-		<div class="col-md-1 arrow"><img src="http://gdurl.com/bj6u" alt="arrow" class="img-responsive"></div>
-		<ul class="col-md-3 ingredientscategory">
-			<li>Useful</li>
-			<li><span class="highlighted">Moisturizing</span></li>
-			<li>Natural</li>
-			<li>Anti-ages</li>
-		</ul>
-		<ul class="col-md-3 ingredientscategory">
-			<li>Silicones</li>
-			<li>Acne Treatment</li>
-			<li>UV protection</li>
-			<li>Allergens</li>
-		</ul>
+<!-- Smart Ingredients List Example -->
+<h3 class="outline row">Smart Ingredients List Example</h3>
+<div class="row">
+	<div class="col-md-2 arrowtext">All ingredients in list are divided by category.</div>
+	<div class="col-md-1 arrow"><img src="http://gdurl.com/bj6u" alt="arrow" class="img-responsive"></div>
+	<div class="col-md-6 ingredientsexample">
+	Aqua, Mineral Oil, Dimethicone, Caprylic/Capric Triglyceride, Chamomile Extract, Acetyl Hexapeptide-8, Jojoba Seed Oil, Alcohol, Niacinamide, Cera Alba, Titanium Dioxide, Malva Sylvestris (Mallow) Extract, Methylparaben, Ceteareth-20, <span class="highlighted">Hyaluronic Acid</span>            	
 	</div>
+	<div class="col-md-1 arrow1"><img src="http://gdurl.com/cePU" alt="arrow" class="img-responsive"></div>
+	<div class="col-md-2 arrowtext">If you want to check product for allergens, click allergens below.</div>
+</div>
 
-	<!--Diagrams-->
-	<div class="row">
-		<div class="col-md-4 col-md-offset-2"><h3 class="diagram">Ingredients Diagramm</h3>
-			<canvas id="doughnut" class="chart chart-doughnut"
-  				chart-data="data" chart-labels="labels">
-			</canvas> 
-		</div>
-		<div class="col-md-4"><h3 class="diagram">Ingredients Safeness</h3>
-			<canvas id="doughnut" class="chart chart-doughnut"
-  				chart-data="data1" chart-labels="labels1">
-			</canvas> 
-		</div>
+<!--Categories-->
+<h4 class="centred row">Ingredients by Category</h4>
+<div class="row">
+	<div class="col-md-2 arrowtext">Click on a category and its ingredients will be highlighted in the list</div>
+	<div class="col-md-1 arrow"><img src="http://gdurl.com/bj6u" alt="arrow" class="img-responsive"></div>
+	<ul class="col-md-3 ingredientscategory">
+		<li>Useful</li>
+		<li><span class="highlighted">Moisturizing</span></li>
+		<li>Natural</li>
+		<li>Anti-ages</li>
+	</ul>
+	<ul class="col-md-3 ingredientscategory">
+		<li>Silicones</li>
+		<li>Acne Treatment</li>
+		<li>UV protection</li>
+		<li>Allergens</li>
+	</ul>
+</div>
+
+<!--Diagrams-->
+<div class="row">
+	<div class="col-md-4 col-md-offset-2"><h3 class="diagram">Ingredients Diagramm</h3>
+		<canvas id="doughnut" class="chart chart-doughnut"
+				chart-data="data" chart-labels="labels">
+		</canvas> 
 	</div>
-	<hr>
+	<div class="col-md-4"><h3 class="diagram">Ingredients Safeness</h3>
+		<canvas id="doughnut" class="chart chart-doughnut"
+				chart-data="data1" chart-labels="labels1">
+		</canvas> 
+	</div>
+</div>
+<hr>
 
 
-	<h3 class="outline">What I do Next?</h3>
+<h3 class="outline row">What I do Next?</h3>
+<div class="row">
 	<div class="col-md-6 col-md-offset-4"> Search for a product  you currectly use:</a></div>
+</div>
 
+<div class="row">	
 	<div ng-controller="SearchController" class="col-md-6 col-md-offset-4">
 		<a ng-href="#/search"><input data-ng-model="q" type="search" name="search" placeholder="search" id="search" data-ng-change="doSearch()"></a>
 	</div><!--search-->
-
 </div>
