@@ -1,26 +1,36 @@
 <div ng-include="'views/search.html'"></div>
-
+</br>
 <!--Filters-->
 <div class="row">
-	<div class="col-md-6">
-		<!-- Single button -->
+	<div class="col-md-2 col-md-offset-8">
 		<div class="btn-group">
- 			<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    			By skin type <span class="caret"></span>
+ 			<button type="button" class="btn btn-info btn-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    			By type<span class="caret"></span>
   			</button>
   			<ul class="dropdown-menu">
-    			<li><a href="#">Normal</a></li>
-    			<li><a href="#">Dry</a></li>
-    			<li><a href="#">Combination</a></li>
+    			<li><a ng-click="#">Cream</a></li>
+    			<li><a ng-click="#">Cleanser</a></li>
     			<li role="separator" class="divider"></li>
-    			<li><a href="#">All skin types</a></li>
+    			<li><a ng-click="#">All</a></li>
   			</ul>
 		</div>
 	</div>
-	<div class="col-md-6">
-		
+	<div class="col-md-2">
+		<div class="btn-group">
+ 			<button type="button" class="btn btn-info btn-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    			By skin type <span class="caret"></span>
+  			</button>
+  			<ul class="dropdown-menu">
+    			<li><a ng-click="#">Normal</a></li>
+    			<li><a ng-click="#">Dry</a></li>
+    			<li><a ng-click="#">Combination</a></li>
+    			<li role="separator" class="divider"></li>
+    			<li><a ng-click="#">All skin types</a></li>
+  			</ul>
+		</div>		
 	</div>	
 </div>
+</br>
 
 <!--Results list-->
 <ul class="list-group">

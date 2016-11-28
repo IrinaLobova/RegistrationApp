@@ -5,7 +5,10 @@
 	<div class="col-md-8">
 		<ul class="product_features">
 			<li class="wishlist">
-				<button class="btn btn-success" ng-show="currentUser" ng-click="addProduct(currentProduct)">Add to Wish List</button>
+				<button class="btn btn-success btn-block" ng-show="currentUser" ng-click="addProduct(currentProduct)">Add to Wish List</button>
+			</li>
+			<li class="amazonlink">
+				<a class="btn btn-warning btn-block" ng-href="{{currentProduct.amazon}}">Buy on Amazon</a>
 			</li>
 			<li>Product title: {{currentProduct.fullname}}</li>
 			<li>Brand: {{currentProduct.brand}}</li>
