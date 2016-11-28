@@ -1,3 +1,7 @@
+<div class="userinfo" ng-show="currentUser">
+    <span class="userinfo">Hi {{ currentUser.displayName }}!</span>
+</div>
+
 <div ng-include="'views/search.html'"></div>
 
 <div>
@@ -84,7 +88,7 @@
 		</ul>
 	</div>
 
-
+	<!--Diagrams-->
 	<div class="row">
 		<div class="col-md-4 col-md-offset-2"><h3 class="diagram">Ingredients Diagramm</h3>
 			<canvas id="doughnut" class="chart chart-doughnut"
@@ -97,12 +101,13 @@
 			</canvas> 
 		</div>
 	</div>
-
 	<hr>
+
+
 	<h3 class="outline">What I do Next?</h3>
 	<div class="col-md-6 col-md-offset-4"> Search for a product  you currectly use:</a></div>
 
-	<div ng-controller="SearchController" class="col-md-9 col-md-offset-4">
+	<div ng-controller="SearchController" class="col-md-6 col-md-offset-4">
 		<a ng-href="#/search"><input data-ng-model="q" type="search" name="search" placeholder="search" id="search" data-ng-change="doSearch()"></a>
 	</div><!--search-->
 

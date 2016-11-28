@@ -39,8 +39,8 @@ regApp.config(['$routeProvider', function($routeProvider){
 			controller: 'WishListController'
 		}).
 		when('/success', {
-			templateUrl: 'views/success.html',
-			controller: 'SuccessController',
+			templateUrl: 'views/home.html',
+			controller: 'HomePageController',
 			resolve: {
 				currentAuth: function(Authentication){
 					return Authentication.requireAuth();

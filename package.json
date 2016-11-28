@@ -17,6 +17,7 @@
   },
   "homepage": "",
   "devDependencies": {
+    "angular-cookies": "^1.5.9",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
     "gulp-connect": "^2.2.0",

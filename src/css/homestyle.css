@@ -24,6 +24,10 @@ html, body {
 .brand h1 a {
 	text-decoration: none !important;
 }
+
+.userinfo {
+	text-align: center;
+}
 .exp {
 	text-align: center;
 	font-size: 18px;
@@ -41,8 +45,8 @@ hr {
 	color: #5E3C58;
 }
 .circle {
-  	position: relative;
-  	background-color: rgba(204,153,204,0.8);
+/*  	position: relative;
+*/  	background-color: rgba(204,153,204,0.8);
   	width: 300px !important;
   	height: 300px;
   	border-radius: 50%;
