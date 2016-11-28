@@ -3,9 +3,10 @@ html, body {
   overflow: auto !important;
   height: 100%;
 }
-/*body {
-	background-color: #E1EBE6 !important;
-}*/
+
+.row {
+	margin-top: 2em !important;
+}
 .logoimage {
 	margin-top: 8px;
 	padding-right: 0 !important;
@@ -24,9 +25,17 @@ html, body {
 .brand h1 a {
 	text-decoration: none !important;
 }
-
 .userinfo {
 	text-align: center;
+}
+a.search {
+	width: 100%;
+	max-width: 850px;
+	margin: auto;
+}
+a.search input {
+	width: 100%;
+  	margin: 0 auto;
 }
 .exp {
 	text-align: center;
@@ -83,7 +92,7 @@ hr {
   	position: relative;
   	border: 2px dashed rgba(204,153,204,0.8) ;
   	height: 300px;
-	margin-top: 7em;
+	margin-top: 5em;
 }
 .instructiontext {
 	position: absolute;
