@@ -1,6 +1,6 @@
 
-regApp.controller('ProductController', 
-    ['searchService', 'visualization', 'userPersistence', '$rootScope', '$scope', '$firebaseArray', '$location', 
+regApp.controller('ProductController',
+    ['searchService', 'visualization', 'userPersistence', '$rootScope', '$scope', '$firebaseArray', '$location',
 	   function(searchService, visualization, userPersistence, $rootScope, $scope, $firebaseArray, $location) {
 
     function getPid(location) {
@@ -12,7 +12,7 @@ regApp.controller('ProductController',
         var wishlistRef = firebase.database().ref().child('wishlist/' + currentUser.uid);
         return $firebaseArray(wishlistRef);
     }
-        
+
     //adding to wishlist
 
     $scope.addProduct = function (currentProduct) {
@@ -21,7 +21,7 @@ regApp.controller('ProductController',
             title: currentProduct.fullname,
             img: currentProduct.url
         });
-    }; 
+    };
 
     function displayProduct(pid) {
         searchService.getProduct(pid).then(function(currentProduct){
@@ -62,12 +62,12 @@ regApp.controller('ProductController',
            $scope.data = donutData.sizes;
        });//end of getProduct
     }
- 
+
     if (angular.isDefined($scope.currentUser)) {
         //console.log("curerntUser = " + $scope.currentUser);
         $scope.wishlist = getWishList($scope.currentUser);
         //console.log("here42");
-    } else { 
+    } else {
         $scope.wishlist = {};
         //console.log("here43");
     }
