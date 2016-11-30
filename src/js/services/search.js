@@ -6,7 +6,7 @@ regApp.factory('searchService', ['$firebaseObject', '$q', '$firebaseArray', '$lo
         var productCategories = ['cruelty free']
 
         function capitalizeFirst(string) {
-                console.log(string);
+            console.log(string);
             return string.charAt(0).toUpperCase() + string.slice(1);
         }
 
@@ -30,7 +30,7 @@ regApp.factory('searchService', ['$firebaseObject', '$q', '$firebaseArray', '$lo
                 return result;
         }
 
-        function doCategorySearch() {
+        function doCategorySearch(defer) {
 			var productsRef = firebase.database().ref().child('products');
 			var query = productsRef.orderByChild('crueltyfree');
 
@@ -42,15 +42,17 @@ regApp.factory('searchService', ['$firebaseObject', '$q', '$firebaseArray', '$lo
                     }
                 });
                 
-				angular.copy(new_results, results);
+				//angular.copy(new_results, results);
 				angular.copy(new_results, copyResults);
+                console.log("resolving results");
+                defer.resolve(new_results);
 				//console.log(new_results);
 			}, function(errors) {
 				console.log("The read failed: " + errors.code)
 			});
         }
 
-        function doBrandSearch(string) {
+        function doBrandSearch(string, defer) {
 			var productsRef = firebase.database().ref().child('products');
 			var query = productsRef.orderByChild('brand');
 
@@ -64,8 +66,10 @@ regApp.factory('searchService', ['$firebaseObject', '$q', '$firebaseArray', '$lo
                     }
                 });
                 
-				angular.copy(new_results, results);
 				angular.copy(new_results, copyResults);
+                console.log("resolving results");
+                defer.resolve(new_results);
+				//angular.copy(new_results, results);
 				//console.log(new_results);
 			}, function(errors) {
 				console.log("The read failed: " + errors.code)
@@ -74,13 +78,15 @@ regApp.factory('searchService', ['$firebaseObject', '$q', '$firebaseArray', '$lo
 
 		function search(qry) {
             var query = qry.toLowerCase();
+			var defer = $q.defer();
             if (productCategories.indexOf(query) >= 0) {
                 console.log("catefory = " + qry);
-                doCategorySearch(query);
+                doCategorySearch(defer);
             } else {
                 console.log("brand = " + qry);
-                doBrandSearch(query);
+                doBrandSearch(query, defer);
             }
+            return defer.promise;
 		}
 
 		function getProduct(pid) {

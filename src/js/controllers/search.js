@@ -1,11 +1,27 @@
 regApp.controller('SearchController', ['searchService','$scope', '$firebaseObject','$location', function(searchService, $scope, $firebaseObject, $location) {
 	$scope.searchService = searchService;
-    $scope.searchService.results = searchService.results;
     //console.log($scope.searchService.results);
 
     $scope.isFocused = true;
-    $scope.doSearch = function(){
-        $scope.searchService.search($scope.q);
+    $scope.searchResults = [];
+
+    $scope.$watch(
+            function() { return $scope.searchResults; },
+            function(newValue, oldValue) {
+                    if ( newValue !== oldValue ) {
+                            $scope.searchResults = newValue;
+                    }
+            }
+    );
+
+    $scope.doSearch = function() {
+        var results = $scope.searchService.search($scope.q);
+        console.log("returned from search");
+        results.then(function(data) {
+                console.log(data);
+                $scope.searchResults = data;
+                $scope.$digest();
+        });
     };
 
     //Filters
