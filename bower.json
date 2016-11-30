@@ -20,6 +20,7 @@
   "devDependencies": {
     "angular": "^1.5.8",
     "angular-route": "^1.5.8",
+    "angular-cookies": "^1.5.9",
     "firebase": "~3.4.1",
     "angularfire": "^2.0.2",
     "bootstrap": "~3.3.7",
