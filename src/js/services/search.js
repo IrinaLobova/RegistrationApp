@@ -43,10 +43,11 @@ regApp.factory('searchService', ['$firebaseObject', '$q', '$firebaseArray', '$lo
                     }
                 });
                 
-				angular.copy(new_results, copyResults);
+                angular.copy(new_results, results);
+                angular.copy(new_results, copyResults);
                 console.log("resolving results");
                 defer.resolve(new_results);
-				console.log(results);
+				//console.log(results);
 			}, function(errors) {
 				console.log("The read failed: " + errors.code)
 			});
@@ -66,7 +67,10 @@ regApp.factory('searchService', ['$firebaseObject', '$q', '$firebaseArray', '$lo
                     }
                 });
                 
-				angular.copy(new_results, copyResults);
+
+                angular.copy(new_results, results);
+                angular.copy(new_results, copyResults);
+
                 console.log("resolving results");
                 defer.resolve(new_results);
 				//console.log(new_results);

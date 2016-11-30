@@ -7,38 +7,12 @@ regApp.controller('SearchController', ['searchService', '$rootScope', '$scope', 
     $scope.searchResults = [];
 
 
-    $scope.$watch(
-            function() { return $scope.searchResults; },
-            function(newValue, oldValue) {
-                if ( newValue !== oldValue ) {
-                    $scope.searchResults = newValue;
-                }
-            }
-    );
-
     $scope.doSearch = function() {
-        var results = $scope.searchService.search($scope.q);
-        console.log("returned from search");
-        results.then(function(data) {
-                console.log(data);
-                $scope.searchResults = data;
-                $scope.$digest();
-        });
-    };
+        var results = $scope.searchService.search($scope.q);
+        console.log("returned from search");
+        $scope.searchResults = results.then(function(data) { return data; });
+    };
 
-    // $scope.doSearch = function (){
-
-    //     var interval = window.setInterval(function() {
-    //         var results =  $scope.searchService.search($scope.q);
-    //         console.log("returned from search");
-    //         if (results) {
-    //             console.log(results);
-    //             window.clearInterval(interval);
-    //             $scope.searchResults = results;
-    //             $scope.$digest();
-    //         }
-    //     }, 1000)
-    // };
 
     //Filters
 
