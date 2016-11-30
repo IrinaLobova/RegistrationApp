@@ -1,16 +1,18 @@
-regApp.controller('SearchController', ['searchService','$scope', '$firebaseObject','$location', function(searchService, $scope, $firebaseObject, $location) {
+regApp.controller('SearchController', ['searchService', '$rootScope', '$scope', '$firebaseObject','$location', 
+    function(searchService, $rootScope, $scope, $firebaseObject, $location) {
 	$scope.searchService = searchService;
     //console.log($scope.searchService.results);
 
     $scope.isFocused = true;
     $scope.searchResults = [];
 
+
     $scope.$watch(
             function() { return $scope.searchResults; },
             function(newValue, oldValue) {
-                    if ( newValue !== oldValue ) {
-                            $scope.searchResults = newValue;
-                    }
+                if ( newValue !== oldValue ) {
+                    $scope.searchResults = newValue;
+                }
             }
     );
 
@@ -23,6 +25,20 @@ regApp.controller('SearchController', ['searchService','$scope', '$firebaseObjec
                 $scope.$digest();
         });
     };
+
+    // $scope.doSearch = function (){
+
+    //     var interval = window.setInterval(function() {
+    //         var results =  $scope.searchService.search($scope.q);
+    //         console.log("returned from search");
+    //         if (results) {
+    //             console.log(results);
+    //             window.clearInterval(interval);
+    //             $scope.searchResults = results;
+    //             $scope.$digest();
+    //         }
+    //     }, 1000)
+    // };
 
     //Filters
 

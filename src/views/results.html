@@ -3,14 +3,6 @@
 <!--Filters-->
 <div class="row">
 	<div class="col-md-2 col-md-offset-8">
-            <!--
-		  <select class="form-control btn-block btn-info">
-          <option value="all">All skin types</option>
-          <option value="dry">Dry skin</option>
-          <option value="normal">Normal skin</option>
-          <option value="combination">Combination skin</option>
-          </select>
-          -->
         <select
           name="skinType"
           id="skinType"
@@ -27,13 +19,6 @@
           ng-options="item.name for item in data.typeOptions"
           ng-model="selectedTypeOption"
           ng-change="filterByType(selectedTypeOption)"></select>
-        <!--
-      <select class="form-control btn-block btn-info">
-          <option value="all">All product types</option>
-          <option value="dry">Cleanser</option>
-          <option value="normal">Cream</option>
-      </select>
-        -->
 	</div>
 </div>
 </br>

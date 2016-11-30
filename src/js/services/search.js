@@ -10,6 +10,7 @@ regApp.factory('searchService', ['$firebaseObject', '$q', '$firebaseArray', '$lo
             return string.charAt(0).toUpperCase() + string.slice(1);
         }
 
+
         function mkResult(data) {
                 var values = data.val();
                 var result = new Object();
@@ -42,11 +43,10 @@ regApp.factory('searchService', ['$firebaseObject', '$q', '$firebaseArray', '$lo
                     }
                 });
                 
-				//angular.copy(new_results, results);
 				angular.copy(new_results, copyResults);
                 console.log("resolving results");
                 defer.resolve(new_results);
-				//console.log(new_results);
+				console.log(results);
 			}, function(errors) {
 				console.log("The read failed: " + errors.code)
 			});
@@ -69,7 +69,6 @@ regApp.factory('searchService', ['$firebaseObject', '$q', '$firebaseArray', '$lo
 				angular.copy(new_results, copyResults);
                 console.log("resolving results");
                 defer.resolve(new_results);
-				//angular.copy(new_results, results);
 				//console.log(new_results);
 			}, function(errors) {
 				console.log("The read failed: " + errors.code)

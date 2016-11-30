@@ -20,7 +20,7 @@ gulp.task('buildApp', function(){
 
 gulp.task('buildVendor', function(){
   return gulp.src([
-    'bower_components/angular/angular.min.js',
+    'bower_components/angular/angular.js',
     'bower_components/angular-route/angular-route.min.js',
     'bower_components/angular-sanitize/angular-sanitize.min.js',
     'bower_components/angular-cookies/angular-cookies.min.js',
