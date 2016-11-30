@@ -8,12 +8,16 @@ regApp.directive('focus', ['$timeout', '$parse', function ($timeout, $parse) {
                     $timeout(function () {
                         element[0].focus(); //set focus on search input box
                     });
+                } else if (value === false) {
+                    $timeout(function () {
+                        element[0].blur(); //set focus on search input box
+                    });
                 }
             });
             // set attribute value to 'false'
             // on blur event:
             element.bind('blur', function () {
-                console.log('blur');
+                //console.log('blur');
                 scope.$apply(model.assign(scope, false));
             });
         }

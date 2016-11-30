@@ -1,5 +1,7 @@
 regApp.controller('HomePageController', ['$scope', function($scope) {
 
+	$scope.isFocused = false;
+
   	$scope.labels = ["Useful", "Natural", "Moisturizing", "Anti-age", "Silicons", 
   	"Acne Treatment", "UV proctection"];
   	$scope.data = [5, 3, 2, 1, 1, 1, 1, 0];

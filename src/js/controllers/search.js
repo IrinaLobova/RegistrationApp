@@ -6,7 +6,8 @@ regApp.controller('SearchController', ['searchService', '$rootScope', '$scope', 
     $scope.isFocused = true;
     $scope.searchResults = [];
 
-
+    $scope.searchResults = $scope.searchService.results;
+    
     $scope.doSearch = function() {
         var results = $scope.searchService.search($scope.q);
         console.log("returned from search");
