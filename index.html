@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  	<meta charset="UTF-8">
+  	<title>Smart Ingredients</title>
+  	<meta name="viewport" content="width=device-width">
+  	<link href='https://fonts.googleapis.com/css?family=Lato:400,100,700,900' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Yellowtail" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css"/>
+
+    <script src="vendors.js"></script>
+
+    <script src="app.js"></script>
+    <script>
+
+            var config = {
+                apiKey: "AIzaSyDui1C_4QcM_NWqaMqxTpV0_-3DOFpPYpI",
+                authDomain: "regapp-9f43d.firebaseapp.com",
+                databaseURL: "https://regapp-9f43d.firebaseio.com",
+                storageBucket: "regapp-9f43d.appspot.com",
+                messagingSenderId: "139127164596"
+            };
+
+            firebase.initializeApp(config);
+        //console.log("Initialized");
+    </script>
+
+</head>
+<body ng-app="regApp">
+    <div class="header">
+  	     <nav class="cf" ng-include="'views/nav.html'"></nav>
+    </div>
+    <div class="container-fluid">
+        <div ng-view></div>
+    </div>
+    <div class="footer">
+        SmartIngredients, 2016 (c)
+    </div>
+</body>
+</html>
