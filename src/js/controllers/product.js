@@ -57,11 +57,18 @@ regApp.controller('ProductController',
                 }
                 $scope.ingredientslist = allIngredients.join(", ");
             };
-           var donutData = visualization.preprocessShares(currentProduct.ingredients);
-           $scope.labels = donutData.labels;
-           $scope.data = donutData.sizes;
+
+           var ingredientsDonut = visualization.preprocessShares(currentProduct.ingredients);
+           $scope.labels = ingredientsDonut.labels;
+           $scope.data = ingredientsDonut.sizes;
+
+           var safetyDonut = visualization.preprocessSafeness(currentProduct.ingredients);
+
+           $scope.labels1 = safetyDonut.labels;
+           $scope.data1 = safetyDonut.data;
+
        });//end of getProduct
-    }
+    }//end of displayProduct
 
     if (angular.isDefined($scope.currentUser)) {
         //console.log("curerntUser = " + $scope.currentUser);

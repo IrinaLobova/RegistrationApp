@@ -17,7 +17,7 @@ regApp.factory('visualization', ['$firebaseObject', '$location',
 			return str.trim();
 		});
 	}
-	
+
 	var visualize = {
 		preprocessShares: function(ingredients) {
 			var shares = mkIngredientsShares(ingredients);
@@ -36,12 +36,30 @@ regApp.factory('visualization', ['$firebaseObject', '$location',
 	    			labels[i] = labels[i].charAt(0).toUpperCase() + labels[i].slice(1);
 	    		}
 	    	}
-	    	
+
 	    	return {
-	    		labels: labels, 
+	    		labels: labels,
 	    		sizes: sizes
 	    	}
     	},
+
+        preprocessSafeness: function(ingredients) {
+                //console.log(ingredients);
+                var allergenesList = splitIngredients(ingredients.allergens);
+                var allergenesSize = allergenesList.length;
+
+                var safeIngredients =
+                        splitIngredients(ingredients.all).filter(function(x) {
+                                return allergenesList.indexOf(x) < 0;
+                        });
+                var safeIngredientsSize = safeIngredients.length;
+
+                return {
+                        labels: ['safe', 'dangerous'],
+                        data: [safeIngredientsSize, allergenesSize]
+                }
+        },
+
     	splitIngredients: splitIngredients
     };//visualize
 

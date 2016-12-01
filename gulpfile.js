@@ -79,4 +79,4 @@ gulp.task('deploy', function() {
 
 // *******************************************
 
-gulp.task('default', ['build', 'watch', 'connect', 'deploy']);
+gulp.task('default', ['build', 'watch', 'connect']);
