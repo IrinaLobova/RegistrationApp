@@ -71,12 +71,9 @@ regApp.controller('ProductController',
     }//end of displayProduct
 
     if (angular.isDefined($scope.currentUser)) {
-        //console.log("curerntUser = " + $scope.currentUser);
         $scope.wishlist = getWishList($scope.currentUser);
-        //console.log("here42");
     } else {
         $scope.wishlist = {};
-        //console.log("here43");
     }
 
     var pid = getPid($location);

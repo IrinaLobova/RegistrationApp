@@ -3,9 +3,6 @@ regApp.factory('Authentication', ['$rootScope', '$firebaseAuth', '$firebaseObjec
 
 		var auth = $firebaseAuth();
 
-        //console.log("AUTH:");
-        //console.log(auth);
-
 		auth.$onAuthStateChanged(function(authUser){
 			if(authUser) {
                 $rootScope.currentUser = authUser;
@@ -20,7 +17,6 @@ regApp.factory('Authentication', ['$rootScope', '$firebaseAuth', '$firebaseObjec
                     user.email,
                     user.password
                 ).then(function(regUser) {
-                        //console.log(regUser);
 					$rootScope.message = "Welcome to SmartIngridients";
 					$location.path('/success');
 				}).catch(function(error){

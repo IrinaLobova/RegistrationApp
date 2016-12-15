@@ -2,7 +2,6 @@ var regApp = angular.module('regApp', ['ngSanitize', 'ngCookies', 'ngRoute', 'fi
 	.constant('FIREBASE_URL', 'https://regapp-9f43d.firebaseio.com/');
 
 regApp.run(['$rootScope', '$location', function($rootScope, $location){
-    //console.log("RegApp RUN" + firebase);
 
 	$rootScope.$on('$routeChangeError', function(event, next, previous, error){
 		if (error == 'AUTH_REQUIRED'){

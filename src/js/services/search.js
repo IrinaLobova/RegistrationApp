@@ -6,7 +6,6 @@ regApp.factory('searchService', ['$firebaseObject', '$q', '$firebaseArray', '$lo
         var productCategories = ['cruelty free']
 
         function capitalizeFirst(string) {
-            console.log(string);
             return string.charAt(0).toUpperCase() + string.slice(1);
         }
 
@@ -45,9 +44,7 @@ regApp.factory('searchService', ['$firebaseObject', '$q', '$firebaseArray', '$lo
                 
                 angular.copy(new_results, results);
                 angular.copy(new_results, copyResults);
-                console.log("resolving results");
                 defer.resolve(new_results);
-				//console.log(results);
 			}, function(errors) {
 				console.log("The read failed: " + errors.code)
 			});
@@ -59,7 +56,6 @@ regApp.factory('searchService', ['$firebaseObject', '$q', '$firebaseArray', '$lo
 
 			query.once("value", function(snapshot) {
                 var new_results = [];
-                //var id = 0;
                 var qCap = capitalizeFirst(string)
                 snapshot.forEach(function(data) {
                     if (data.key.startsWith(qCap)) {
@@ -71,9 +67,7 @@ regApp.factory('searchService', ['$firebaseObject', '$q', '$firebaseArray', '$lo
                 angular.copy(new_results, results);
                 angular.copy(new_results, copyResults);
 
-                console.log("resolving results");
                 defer.resolve(new_results);
-				//console.log(new_results);
 			}, function(errors) {
 				console.log("The read failed: " + errors.code)
 			});
@@ -83,10 +77,8 @@ regApp.factory('searchService', ['$firebaseObject', '$q', '$firebaseArray', '$lo
             var query = qry.toLowerCase();
 			var defer = $q.defer();
             if (productCategories.indexOf(query) >= 0) {
-                console.log("catefory = " + qry);
                 doCategorySearch(defer);
             } else {
-                console.log("brand = " + qry);
                 doBrandSearch(query, defer);
             }
             return defer.promise;
@@ -95,17 +87,11 @@ regApp.factory('searchService', ['$firebaseObject', '$q', '$firebaseArray', '$lo
 		function getProduct(pid) {
 			var defer = $q.defer();
 			var productRef = firebase.database().ref().child('products');
-    		//console.log("bar");
-
-    		//var products = $firebaseArray(productRef);
 
 		    var query = productRef.orderByChild('brand');
 		   	query.once("value", function(snapshot) {
-		   		//console.log('here');
                 snapshot.forEach(function(data) {
-					//console.log("key is " + data.key);
                     if (data.key === pid) {
-						//console.log('key found');
                         defer.resolve(data.val());
                     }
                 });

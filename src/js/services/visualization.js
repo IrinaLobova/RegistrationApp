@@ -21,7 +21,6 @@ regApp.factory('visualization', ['$firebaseObject', '$location',
 	var visualize = {
 		preprocessShares: function(ingredients) {
 			var shares = mkIngredientsShares(ingredients);
-    	//["Anti-Acne", "Anti-Age", "Allergens", "Moisturizers", "Natural", "Silicons", "Useful", "UV protection"];
 	    	var labels = shares.map(function(pair) { return pair.label } );
 	    	var sizes = shares.map(function(pair) { return pair.size } );
 
@@ -44,7 +43,6 @@ regApp.factory('visualization', ['$firebaseObject', '$location',
     	},
 
         preprocessSafeness: function(ingredients) {
-                //console.log(ingredients);
                 var allergenesList = splitIngredients(ingredients.allergens);
                 var allergenesSize = allergenesList.length;
 

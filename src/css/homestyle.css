@@ -165,7 +165,7 @@ footer {
 	margin-top: 3em !important;
 	height: 300px;
 	width: 100%;
-	position: absolute;
+	position: relative;
 	left: 0;
 	right: 0;
 	bottom: 0;
